@@ -16,3 +16,13 @@ class add_form(models.Model):
     status          = models.CharField(max_length = 120)
     def __str__(self):
         return ("%s" %(self.name))
+    
+class Item(models.Model):
+    name = models.TextField(max_length=191)
+    empid = models.CharField(max_length = 20, primary_key = True, unique = True)
+    doj = models.DateField(auto_now = False, auto_now_add = False)
+    dor = models.DateField(auto_now = False, auto_now_add = False)
+    lws = models.CharField(max_length=20)
+
+    def __str__(self):
+        return ("%s" %(self.name))

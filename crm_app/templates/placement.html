@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} PLACEMENT {% endblock %}
+{% block content %}
+            <div class="card-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="" class="form-label">Name</label>
+                        <input type="text" Required name="name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Employee ID</label>
+                        <input type="text" Required name="empid" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Date of joining</label>
+                        <input type="text" Required name="doj" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Date of releiving</label>
+                        <input type="text" Required name="dor" class="form-control">
+                    </div>
+                    <div class="mb-3"> 
+                        <label for="" class="form-label">Last withdrawn salary</label>
+                        <input type="text" Required name="lws" class="form-control">
+                    </div>
+                     
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+{% endblock %}              

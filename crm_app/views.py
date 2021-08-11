@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import add_form
+from .models import add_form,Item
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -29,3 +29,27 @@ def view_data(request):
      std_data =add_form.objects.all()
      
      return render(request,'view_data.html',{'std_data':std_data})
+ 
+@login_required()
+def index(request):
+    products = Item.objects.all()
+    context = {'products':products}
+    return render(request, 'placement_view.html', context)
+
+@login_required()
+def addProduct(request):
+    if request.method == "POST":
+        prod = Item()
+        prod.name = request.POST.get('name')
+        prod.empid = request.POST.get('empid')
+        prod.doj = request.POST.get('doj')
+        prod.dor = request.POST.get('dor')
+        prod.lws = request.POST.get('lws')
+
+        
+
+        prod.save()
+        # messages.success(request, "Product Added Successfully")
+        return redirect('/')
+    return render(request, 'placement.html')
+
