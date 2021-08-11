@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Member{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+        <form class="form-horizontal" method="POST" >
+        
+            {% csrf_token %}
+        
+        <!-- Form Name -->
+        <legend style='text-align: center'>ADD MEMBER</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="Name">NAME</label>  
+          <div class="col-md-4">
+          <input id="Name" name="name" placeholder="NAME" class="form-control input-md" required="" type="text">
+
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">EMAIL ID</label>  
+            <div class="col-md-4">
+            <input id="email_id" name="email" placeholder="EMAIL ID" class="form-control input-md" required="" type="email">
+  
+            </div>
+          </div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="available_quantity">PHONE NO</label>  
+          <div class="col-md-4">
+          <input id="phone_no" name="phone" placeholder="PHONE NO" class="form-control input-md" required="" type="text">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="yop">YEAR OF PASSOUT</label>  
+          <div class="col-md-4">
+          <input id="yop" name="yop" placeholder="YEAR OF PASSOUT" class="form-control input-md" required="" type="text">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="percentage_discount">DEGREE</label>  
+          <div class="col-md-4">
+          <input id="degree" name="degree" placeholder="DEGREE" class="form-control input-md" required="" type="text">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="STATUS">STATUS</label>
+            <div class="col-md-4">
+              <select id="STATUS" name="status" class="form-control">
+                  <option>SELECT</option>
+                  <option>ENTROLL</option>
+                  <option>REJECT</option>
+                  <option>INPROCESS</option>
+
+              </select>
+            </div>
+          </div> 
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton">SUBMIT</label>
+          <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+          </div>
+          </div>
+        </form>
+  {% endif %}
+{% endblock %}
